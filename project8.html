@@ -1,0 +1,51 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let rand = Math.floor(Math.random() * 100 + 1);
+        let nbr = prompt('Guess the number between 1 and 100:')
+        let trial = 1;
+        let singleTry = nbr;
+
+        while (trial < 8) {
+            if (nbr == rand) {
+                alert('Correct with ' + trial + ' trials!');
+                break;
+            }
+            if (nbr > rand && singleTry !== nbr) {
+                singleTry = nbr;
+                trial++;
+                nbr = prompt('too large - trial ' + trial + '/8\nEnter number again:');
+               
+            }
+
+            else if (nbr > rand && singleTry === nbr) {
+                nbr = prompt('too large - trial ' + trial + '/8\nEnter number again:');
+            }
+
+            else if (nbr < rand && singleTry !==nbr ) {
+                singleTry = nbr;
+                trial++;
+                nbr = prompt('too small - trial ' + trial + '/8\nEnter number again:');
+                
+            }
+            else if (nbr < rand && singleTry === nbr) {
+                nbr = prompt('too small - trial ' + trial + '/8\nEnter number again:');
+            }
+
+            if (trial >= 8) {
+                alert('You loose!')
+            }
+        }
+
+    </script>
+</body>
+
+</html>
